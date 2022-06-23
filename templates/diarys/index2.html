@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'diarys/css/practice.css' %}">
+</head>
+<body>
+    {% if routine_list %}
+        <ul>
+            {% for routine in routine_list %}
+                <li>제목:{{routine.name}} 내용:{{routine.sets}}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div>루틴없음</div>
+    {% endif %}
+
+    <form action="/diarys/practice/" method="post">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="제목을 입력하거나 말거나 맘대로 하세요">
+        <p><textarea name="body" placeholder="내용을 입력하거나 말거나 맘대로 하세요"></textarea></p>
+        <p><input type="submit"></p>
+        <div>{{title}}</div>
+        <div>{{body}}</div>
+    </form>
+    <button>TLqkf</button>
+</body>
+{% load static %}
+<script src="{% static "diarys/js/practice.js" %}"></script>
+</html>

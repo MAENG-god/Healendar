@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var next_date = "{{next_date}}";
+        var next_month = "{{next_month}}";
+        var next_year = "{{next_year}}";
+
+        var prev_date = "{{prev_date}}";
+        var prev_month = "{{prev_month}}";
+        var prev_year = "{{prev_year}}";
+
+        var this_date = "{{date}}";
+        var this_month = "{{month}}";
+        var this_year = "{{year}}";
+
+    </script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'diarys/css/workout.css' %}">
+</head>
+<body>
+    <div class="healendar_header">
+        <div class="home">
+            HEALENDAR
+        </div>
+        <div class="header">
+            <button class="move_prev">&lt;</button>
+            <h1 class="ymd">{{year}}년 {{month}}월 {{date}}일</h1>
+            <button class="move_next">&gt;</button>
+        </div>
+    </div>
+    
+    <div class="workout">       
+        <div class="main_workout">
+            <div class="routine_list">
+                {% if routine_list %}
+                    {% for routine in routine_list %}
+                        <div class="routine">
+                            <div class="routine_header">
+                                <span>{{routine.name}}</span><span>{{routine.sets}}sets</span>
+                            </div>
+                            <div class="routine_main">
+                                {% for detail in routine.routine_detail_set.all %}
+                                    <div class="routine_detail">
+                                        <span>set {{forloop.counter}}</span>
+                                        <span>{{detail.weight}} kg</span>  
+                                        <span>{{detail.reps}} reps</span>
+                                    </div>
+                                {% endfor %}
+                                <form action="/diarys/{{year}}/{{month}}/{{date}}/{{routine.id}}/" method="post" class="add_detail">
+                                    {% csrf_token %}
+                                    <span><input class="input_weight" type="text" name="weight" min="0">kg</span>
+                                    <span><input class="input_reps" type="number" name="reps" min="0">reps</span>
+                                    <input class="input_go" type="submit" value="GO!">
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <form class="add_table" action="/diarys/{{year}}/{{month}}/{{date}}/" method="post">
+                    {% csrf_token %}
+                </form>
+                <button class="add_routine" onclick="add_routine()">
+                    ADD WORKOUT
+                </button>
+            </div> 
+            <div class="sub">
+                <div class="volume">
+
+                </div>
+                <div class="feedback">
+
+                </div>
+            </div>   
+        </div>
+    </div>
+    {% load static %}
+    <script src="{% static 'diarys/js/daily.js' %}"></script>
+</body>
+</html>
