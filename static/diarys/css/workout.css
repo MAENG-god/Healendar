@@ -103,7 +103,7 @@
 }
 
 .input_name{
-    width: 40%;
+    width: 60%;
     border-top: none;
     border-left: none;
     border-right: none;
@@ -148,7 +148,8 @@
     border: 1px solid rgb(74, 74, 74);
     align-items: center;
     justify-content: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
 
 .routine_header{
@@ -190,7 +191,7 @@
 }
 
 .input_weight{
-    width: 60%;
+    width: 50%;
     border-top: none;
     border-left: none;
     border-right: none;
@@ -210,6 +211,11 @@
     cursor: pointer;
     border: 1px solid black;
     border-radius: 5px;
+}
+
+.large_go{
+    width: 50%;
+    height: 30px;
 }
 
 .input_go:hover{

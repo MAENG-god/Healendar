@@ -41,7 +41,7 @@
                     {% for routine in routine_list %}
                         <div class="routine">
                             <div class="routine_header">
-                                <span>{{routine.name}}</span><span>{{routine.sets}}sets</span>
+                                <span>{{routine.name}}</span><span>{{routine.sets}}sets</span><button class="edit_routine">Edit</button>
                             </div>
                             <div class="routine_main">
                                 {% for detail in routine.routine_detail_set.all %}
