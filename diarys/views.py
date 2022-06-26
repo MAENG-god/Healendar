@@ -85,3 +85,10 @@ def add_routine(request, year, month, date, routine_id):
     routine_detail = Routine_detail(routine=routine, weight=request.POST["weight"], reps=request.POST["reps"])
     routine_detail.save()
     return redirect("/diarys/" + str(year) + "/" + str(month) + "/" + str(date) + "/")
+
+def edit_routine(request, year, month, date, routine_id):
+    routine = get_object_or_404(Routine, pk=routine_id)
+    routine.name = request.POST["Name"]
+    routine.sets = request.POST["sets"]
+    routine.save()
+    return redirect("/diarys/" + str(year) + "/" + str(month) + "/" + str(date) + "/")

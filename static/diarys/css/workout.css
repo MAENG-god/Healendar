@@ -7,13 +7,13 @@
 .healendar_header{
     display: flex;
     border: 1px solid black;
+    align-items: center;
 }
 
-
 .home{
-    position:sticky;
-    top: 1%;
-    left: 1%;
+    display: flex;
+    margin-left: 3%;
+    width: 20%;
     font-size: 200%;
     cursor: pointer;
 }
@@ -227,4 +227,18 @@
     display: flex;
     flex-direction: column;
     height: 600px;
+}
+
+.edit_form{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.edit_name{
+    width: 60%;
+}
+
+.edit_sets{
+    width: 40%;
 }

@@ -31,8 +31,15 @@ go_home.addEventListener("click", function(){
     location.href = "/diarys/"
 })
 
-var edit_routine = document.querySelector('.edit_routine');
-edit_routine.addEventListener("click", function(){
-    var header = edit_routine.parentNode;
-    
-})
+function edit_routine(e){
+    var parent = e.parentNode;
+    while (parent.hasChildNodes()) {
+        parent.removeChild(parent.firstChild);
+    }
+    parent.innerHTML=`
+    <span><input class="edit_name" name="Name" type="text" placeholder="Name"></span>
+    <span><input class="edit_sets" name="sets" type="number" min="1" placeholder="Sets"></span>
+    <input type="submit" value="GO!">
+    `
+
+}

@@ -40,9 +40,12 @@
                 {% if routine_list %}
                     {% for routine in routine_list %}
                         <div class="routine">
-                            <div class="routine_header">
-                                <span>{{routine.name}}</span><span>{{routine.sets}}sets</span><button class="edit_routine">Edit</button>
-                            </div>
+                            <form action="/diarys/edit/{{year}}/{{month}}/{{date}}/{{routine.id}}/" method="post" class="edit_form">
+                                {% csrf_token %}
+                                <div class="routine_header">
+                                    <span>{{routine.name}}</span><span>{{routine.sets}}sets</span><button class="edit_routine" onclick="edit_routine(this)">Edit</button>
+                                </div>
+                            </form>
                             <div class="routine_main">
                                 {% for detail in routine.routine_detail_set.all %}
                                     <div class="routine_detail">
