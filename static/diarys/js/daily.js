@@ -42,5 +42,4 @@ function edit_routine(e){
     <span><input class="edit_sets" name="sets" type="number" min="1" placeholder="Sets"></span>
     <input type="submit" value="GO!">
     `
-
 }
