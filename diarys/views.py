@@ -92,3 +92,9 @@ def edit_routine(request, year, month, date, routine_id):
     routine.sets = request.POST["sets"]
     routine.save()
     return redirect("/diarys/" + str(year) + "/" + str(month) + "/" + str(date) + "/")
+
+def delete_routine(request, year, month, date, routine_id):
+    routine = get_object_or_404(Routine, pk=routine_id)
+    routine.delete()
+    return redirect("/diarys/" + str(year) + "/" + str(month) + "/" + str(date) + "/")
+

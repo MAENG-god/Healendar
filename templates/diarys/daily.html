@@ -44,6 +44,10 @@
                                 {% csrf_token %}
                                 <div class="routine_header">
                                     <span>{{routine.name}}</span><span>{{routine.sets}}sets</span><button class="edit_routine" onclick="edit_routine(this)">Edit</button>
+                                    <button class="del_routine" type="button" onclick="
+                                        location.href = '/diarys/delete/{{year}}/{{month}}/{{date}}/{{routine.id}}/'">
+                                        DEL
+                                    </button>
                                 </div>
                             </form>
                             <div class="routine_main">

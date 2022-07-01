@@ -37,7 +37,6 @@ function edit_routine(e){
         parent.removeChild(parent.firstChild);
     }
     parent.innerHTML=`
-    <button class="del_routine" type="button">DEL</button>
     <span><input class="edit_name" name="Name" type="text" placeholder="Name"></span>
     <span><input class="edit_sets" name="sets" type="number" min="1" placeholder="Sets"></span>
     <input type="submit" value="GO!">
