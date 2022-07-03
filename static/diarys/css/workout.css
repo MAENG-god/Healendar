@@ -239,3 +239,8 @@
 .edit_sets{
     width: 40%;
 }
+
+.total_volume{
+    font-size: 30px;
+    color: red;
+}

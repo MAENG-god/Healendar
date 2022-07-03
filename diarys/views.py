@@ -63,6 +63,13 @@ def daily_workout(request, year, month, date):
         ymd = str(year) + str(month) + str(date)
         routine_list = Routine.objects.filter(modelkey=ymd)
 
+        ##볼륨계산
+        volume_total = 0
+        for routine in routine_list:
+            details = routine.routine_detail_set.all()
+            for routine_detail in details:
+                volume_total += float(routine_detail.weight) * float(routine_detail.reps)
+            
         
         template = loader.get_template('diarys/daily.html')
         context = {
@@ -76,6 +83,7 @@ def daily_workout(request, year, month, date):
             "prev_month": prev_month,
             "prev_year": prev_year,
             "routine_list": routine_list,
+            "volume_total": volume_total,
             
         }
         return HttpResponse(template.render(context, request))
