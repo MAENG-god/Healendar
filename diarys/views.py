@@ -4,7 +4,7 @@ from django.http import HttpResponse
 import calendar
 import datetime
 
-from .models import Routine, Routine_detail
+from .models import Routine, Routine_comment, Routine_detail
 # Create your views here
 
 #메인 달력 화면
@@ -62,6 +62,7 @@ def daily_workout(request, year, month, date):
         
         ymd = str(year) + str(month) + str(date)
         routine_list = Routine.objects.filter(modelkey=ymd)
+        routine_comment = Routine_comment.objects.filter(modelkey=ymd)
 
         ##볼륨계산
         volume_total = 0
@@ -84,7 +85,7 @@ def daily_workout(request, year, month, date):
             "prev_year": prev_year,
             "routine_list": routine_list,
             "volume_total": volume_total,
-            
+            "routine_comment": routine_comment,           
         }
         return HttpResponse(template.render(context, request))
     
@@ -104,5 +105,10 @@ def edit_routine(request, year, month, date, routine_id):
 def delete_routine(request, year, month, date, routine_id):
     routine = get_object_or_404(Routine, pk=routine_id)
     routine.delete()
+    return redirect("/diarys/" + str(year) + "/" + str(month) + "/" + str(date) + "/")
+
+def comment(request, year, month, date):
+    modelkey = str(year) + str(month) + str(date)
+    Routine_comment.objects.create(comment=request.POST["comment"], modelkey=modelkey)
     return redirect("/diarys/" + str(year) + "/" + str(month) + "/" + str(date) + "/")
 

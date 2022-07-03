@@ -77,11 +77,23 @@
             </div> 
             <div class="sub">
                 <div class="volume">
-                    <h1 class="volume_header">Total Volume: <span class="total_volume">{{volume_total}}</span>kg</h1>
+                    <h1 class="vol_header">Total Volume: <span class="total_volume">{{volume_total}}</span>kg</h1>
+                    <div class="vol_level"></div>
                 </div>
-                <div class="feedback">
-
+                {% if routine_comment %}
+                <div class="comment">
+                    <h1 class="sub_title">Comment</h1>
+                    {% for comment in routine_comment %}
+                        <div>{{comment.comment}}</div>
+                    {% endfor %}
                 </div>
+                {% else %}
+                <form class="comment" action="/diarys/comment/{{year}}/{{month}}/{{date}}/" method="post">
+                    {% csrf_token %}
+                    <div class="sub_header"><h1 class="sub_title">Comment</h1><input type="submit" style="height:25px;" value="GO"></div>
+                    <textarea name="comment" placeholder="내용을 입력하세요" rows="12"></textarea>
+                </form>
+                {% endif %}
             </div>   
         </div>
     </div>

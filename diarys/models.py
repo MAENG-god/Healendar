@@ -10,3 +10,7 @@ class Routine_detail(models.Model):
     routine = models.ForeignKey(Routine, on_delete=models.CASCADE)
     weight = models.FloatField()
     reps = models.IntegerField()
+    
+class Routine_comment(models.Model):
+    comment = models.TextField()
+    modelkey = models.CharField(max_length=10)
