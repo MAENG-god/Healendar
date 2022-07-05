@@ -82,15 +82,15 @@
                 </div>
                 {% if routine_comment %}
                 <div class="comment">
-                    <h1 class="sub_title">Comment</h1>
+                    <div class="sub_header"><h1>Comment</h1></div>
                     {% for comment in routine_comment %}
-                        <div>{{comment.comment}}</div>
+                        <div class="comment_box">{{comment.comment}}</div>
                     {% endfor %}
                 </div>
                 {% else %}
                 <form class="comment" action="/diarys/comment/{{year}}/{{month}}/{{date}}/" method="post">
                     {% csrf_token %}
-                    <div class="sub_header"><h1 class="sub_title">Comment</h1><input type="submit" style="height:25px;" value="GO"></div>
+                    <div class="sub_header"><h1>Comment</h1><input type="submit" style="height:25px;" value="GO"></div>
                     <textarea name="comment" placeholder="내용을 입력하세요" rows="12"></textarea>
                 </form>
                 {% endif %}

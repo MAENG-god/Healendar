@@ -11,31 +11,39 @@
 <body>
 {% load static %}
 <link rel="stylesheet" href="{% static 'diarys/css/style.css' %}">
-<div class="all_calendar">
-    <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
-    <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
-    <div class="calendar">
-        <div class="calendar_header">
-            <div class="ym-wrapper">
-                <span class="year"></span>년
-                <span class="month"></span>월
-            </div>
-        </div>
-        <div class="calendar_main">
-            <div class="days">
-                <div class="day">일</div>
-                <div class="day">월</div>
-                <div class="day">화</div>
-                <div class="day">수</div>
-                <div class="day">목</div>
-                <div class="day">금</div>
-                <div class="day">토</div>
-            </div>
-            <div class="dates"></div>
-        </div>
+
+<div class="healendar_header">
+    <div class="home">
+        HEALENDAR
+    </div>
     </div>
 </div>
-<button class="go_workout">Today's Workout</button>
+<div class="main_home">
+    <div class="all_calendar">
+        <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
+        <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+        <div class="calendar">
+            <div class="calendar_header">
+                <span class="year"></span>
+                <span class="month"></span>
+            </div>
+            <div class="calendar_main">
+                <div class="days">
+                    <div class="day">일</div>
+                    <div class="day">월</div>
+                    <div class="day">화</div>
+                    <div class="day">수</div>
+                    <div class="day">목</div>
+                    <div class="day">금</div>
+                    <div class="day">토</div>
+                </div>
+                <div class="dates"></div>
+            </div>
+        </div>
+        <!-- <button class="go_workout">Today's Workout</button> -->
+    </div>
+</div>
+
 
 </body>
 <script src="{% static 'diarys/js/calendar.js' %}"></script>

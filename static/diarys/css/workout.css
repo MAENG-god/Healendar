@@ -270,6 +270,8 @@
 .comment_box{
     display: flex;
     height: 200px;
+    outline: 1px solid gray;
+    padding: 1%;
 }
 
 .sub_header{

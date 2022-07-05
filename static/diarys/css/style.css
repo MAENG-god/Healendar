@@ -1,31 +1,55 @@
 .calendar {
     display: flex;
+    width: 80%;
     flex-direction: column;
     padding-bottom: 30px;
     justify-content: center;
     align-items: center;
 }
 
-.all_calendar{
+.healendar_header{
     display: flex;
+    border-bottom: 2px solid black;
     align-items: center;
     justify-content: center;
-    margin-top: 5%;
+    height: 100px;
+}
+
+.month{
+    font-size: x-large;
+}
+
+.home{
+    display: flex;
+    font-size: 300%;
+    cursor: pointer;
+}
+
+.main_home{
+    display: flex;
+    width: 100%;
+}
+
+.all_calendar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
 }
 
 .calendar_header {
     display: inline-block;
 }
 
-.ym-wrapper{
+.calendar-header{
     display: flex;
-    justify-content: center;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .go_workout {
     display: flex;
-    position:absolute;
-    left: 45%;
     width: 10%;
     font-size: 100%;
     border: 1px solid gray;
@@ -87,8 +111,8 @@
 .date {
     cursor: pointer;
     width: calc(93% / 7);
+    height: 20px;
     padding: 1% 0 9% 1%;
-    /* text-align: left; */
     text-align: left;
     outline: 1px solid #33333341;
     transition: all .3s;
@@ -272,7 +296,7 @@
 @media screen and (min-width: 600px) {
  
     .calendar {
-        width: 70%;
+        width: 80%;
         margin: 0;
         padding-bottom: 50px;
     }
