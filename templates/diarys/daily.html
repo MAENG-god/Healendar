@@ -81,11 +81,17 @@
                     <div class="vol_level"></div>
                 </div>
                 {% if routine_comment %}
+                {% for comment in routine_comment %}
                 <div class="comment">
-                    <div class="sub_header"><h1>Comment</h1></div>
-                    {% for comment in routine_comment %}
-                        <div class="comment_box">{{comment.comment}}</div>
-                    {% endfor %}
+                    <div class="sub_header">
+                        <h1>Comment</h1>
+                        <button class="del_comment" type="button" onclick="
+                                        location.href = '/diarys/del_comment/{{year}}/{{month}}/{{date}}/{{comment.id}}/'">
+                                        DEL
+                        </button>
+                    </div>
+                    <div class="comment_box">{{comment.comment}}</div>
+                {% endfor %}
                 </div>
                 {% else %}
                 <form class="comment" action="/diarys/comment/{{year}}/{{month}}/{{date}}/" method="post">

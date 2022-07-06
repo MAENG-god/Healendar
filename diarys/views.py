@@ -112,3 +112,7 @@ def comment(request, year, month, date):
     Routine_comment.objects.create(comment=request.POST["comment"], modelkey=modelkey)
     return redirect("/diarys/" + str(year) + "/" + str(month) + "/" + str(date) + "/")
 
+def del_comment(request, year, month, date, comment_id):
+    comment = get_object_or_404(Routine_comment, pk=comment_id)
+    comment.delete()
+    return redirect("/diarys/" + str(year) + "/" + str(month) + "/" + str(date) + "/")
